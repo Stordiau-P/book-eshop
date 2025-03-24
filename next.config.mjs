@@ -10,8 +10,8 @@ const nextConfig = {
   images: {
     unoptimized: true, // 🚀 Désactive l'optimisation des images (sinon erreur sur GitHub Pages)
   },
-  basePath: "/nom-du-repo", // ⚠️ Remplace par le nom EXACT de ton repo GitHub
-  assetPrefix: "/nom-du-repo/",
+  basePath: "/book-eshop", // ⚠️ Remplace par le nom EXACT de ton repo GitHub
+  assetPrefix: "/book-eshop/",
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
