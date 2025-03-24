@@ -21,22 +21,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm"
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build Next.js project
+      - name: Build and Export Next.js
         run: npm run build && npm run export
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out  # ✅ On upload le dossier généré par `next export`
+          path: ./out
 
   deploy:
     environment:
