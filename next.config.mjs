@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export", // 🔥 Permet d'exporter en statique pour GitHub Pages
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -7,39 +8,15 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    unoptimized: true, // 🚀 Désactive l'optimisation des images (sinon erreur sur GitHub Pages)
   },
+  basePath: "/book-eshop", // ⚠️ Remplace par le nom EXACT de ton repo GitHub
+  assetPrefix: "/book-eshop/",
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
-}
+};
 
-// ✅ Déclare userConfig avant de l'utiliser
-const userConfig = {}; // Ou charge tes configs dynamiques ici
-
-function mergeConfig(nextConfig, userConfig) {
-  if (!userConfig) {
-    return nextConfig; // ✅ Retourne nextConfig si userConfig est vide
-  }
-
-  for (const key in userConfig) {
-    if (
-        typeof nextConfig[key] === 'object' &&
-        !Array.isArray(nextConfig[key])
-    ) {
-      nextConfig[key] = {
-        ...nextConfig[key],
-        ...userConfig[key],
-      };
-    } else {
-      nextConfig[key] = userConfig[key];
-    }
-  }
-
-  return nextConfig; // ✅ Retourne le nouvel objet config
-}
-
-// ✅ Appelle mergeConfig et exporte le résultat
-export default mergeConfig(nextConfig, userConfig);
+export default nextConfig;
