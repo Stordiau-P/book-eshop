@@ -7,8 +7,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-100 dark:bg-gray-900 border-t">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="container mx-auto px-4 py-8 md:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           <div>
             <h3 className="text-lg font-bold mb-4">Molenbook</h3>
             <p className="text-muted-foreground">
@@ -44,7 +44,7 @@ export default function Footer() {
 
           <div>
             <h3 className="text-lg font-bold mb-4">Connect With Us</h3>
-            <div className="flex space-x-4 mb-4">
+            <div className="flex space-x-3 sm:space-x-4 mb-4">
               <button className="text-muted-foreground hover:text-primary">
                 <Facebook className="h-5 w-5" />
                 <span className="sr-only">Facebook</span>
@@ -66,11 +66,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t mt-8 pt-8 text-center text-muted-foreground">
+        <div className="border-t mt-6 md:mt-8 pt-6 md:pt-8 text-center text-muted-foreground text-sm md:text-base">
           <p>&copy; {currentYear} Molenbook. All rights reserved.</p>
         </div>
       </div>
     </footer>
   )
 }
-

@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export", // 🔥 Permet d'exporter en statique pour GitHub Pages
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -8,10 +7,10 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true, // 🚀 Désactive l'optimisation des images (sinon erreur sur GitHub Pages)
+    unoptimized: true,
   },
-  basePath: "/book-eshop", // ⚠️ Remplace par le nom EXACT de ton repo GitHub
-  assetPrefix: "/book-eshop/",
+  basePath: process.env.NODE_ENV === 'production' ? "/book-eshop" : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? "/book-eshop/" : '',
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,

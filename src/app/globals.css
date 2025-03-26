@@ -1,7 +1,24 @@
+/**
+ * Global CSS Styles
+ * 
+ * This file contains the global CSS styles for the entire application.
+ * It imports Tailwind CSS base, components, and utilities, as well as
+ * defines custom CSS variables for the theme.
+ */
+
+/* Import Tailwind CSS base styles */
 @tailwind base;
+/* Import Tailwind CSS component styles */
 @tailwind components;
+/* Import Tailwind CSS utility styles */
 @tailwind utilities;
 
+/**
+ * CSS Variables for Light and Dark Themes
+ * 
+ * These variables define the color palette for both light and dark modes.
+ * They are used throughout the application for consistent theming.
+ */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -66,6 +83,12 @@
   }
 }
 
+/**
+ * Base Styles
+ * 
+ * These styles apply to the entire application and provide
+ * consistent styling for all elements.
+ */
 @layer base {
   * {
     @apply border-border;
@@ -81,4 +104,3 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-
