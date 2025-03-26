@@ -195,7 +195,6 @@ export default function Navbar() {
           {user ? (
             <Button variant="outline" size="sm" onClick={handleLogout} className="gap-1 text-xs px-2 h-8">
               <LogOut className="h-3 w-3" />
-              Logout
             </Button>
           ) : (
             <Link href="/login">

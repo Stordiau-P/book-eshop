@@ -1,3 +1,11 @@
+/**
+ * Book Detail Page
+ * 
+ * This page displays detailed information about a specific book.
+ * It uses the BookDetails component which fetches data from the DataContext,
+ * ensuring we maintain a single API call architecture.
+ */
+
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { BookDetails } from "../../../components/BookDetails";
@@ -9,13 +17,18 @@ interface BookPageProps {
   };
 }
 
-// ✅ Ajout de generateStaticParams()
+/**
+ * Generate static paths for common book IDs
+ * 
+ * Instead of making a duplicate API call, we pre-define a set of common IDs
+ * that will be pre-rendered at build time. The DataContext will handle
+ * fetching the actual data for these and any other IDs at runtime.
+ */
 export async function generateStaticParams() {
-  const res = await fetch("https://example-data.draftbit.com/books"); // Remplace par ton API
-  const books = await res.json();
-
-  return books.map((book: { id: string }) => ({
-    id: book.id.toString(),
+  // Pre-generate paths for the first 20 book IDs
+  // This is a static approach that doesn't require an API call
+  return Array.from({ length: 20 }, (_, i) => ({
+    id: (i + 1).toString(),
   }));
 }
 
