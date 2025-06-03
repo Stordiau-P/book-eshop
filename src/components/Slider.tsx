@@ -2,14 +2,14 @@
  * Slider Component
  * 
  * This component displays a featured book slider/carousel on the homepage.
- * It shows random books with a rotating animation and navigation controls.
+ * It shows random books with a rotating animation.
  * 
  * Features:
  * - Automatic rotation between featured books
- * - Manual navigation with next/previous buttons
  * - Responsive design for all screen sizes
  * - Book cover image display with hover effects
  * - Call-to-action buttons for each book
+ * - Slide indicators for navigation
  */
 
 "use client"
@@ -17,7 +17,6 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "./ui/button"
 import { useData } from "../context/DataContext"
 import type { Book } from "../types/book"
@@ -150,26 +149,6 @@ export default function Slider() {
           ))}
         </div>
       </div>
-
-      {/* Previous slide button */}
-      <Button
-        variant="ghost"
-        size="icon"
-        className="absolute left-6 sm:left-8 md:left-16 lg:left-20 top-1/2 -translate-y-1/2 z-30 bg-black/30 text-white hover:bg-black/50 rounded-full h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12"
-        onClick={prevSlide}
-      >
-        <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
-      </Button>
-      
-      {/* Next slide button */}
-      <Button
-        variant="ghost"
-        size="icon"
-        className="absolute right-6 sm:right-8 md:right-16 lg:right-20 top-1/2 -translate-y-1/2 z-30 bg-black/30 text-white hover:bg-black/50 rounded-full h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12"
-        onClick={nextSlide}
-      >
-        <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
-      </Button>
 
       {/* Slide indicators */}
       <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-30 flex space-x-2 sm:space-x-3">
