@@ -9,8 +9,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.NODE_ENV === 'production' ? "/book-eshop" : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? "/book-eshop/" : '',
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
